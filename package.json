@@ -9,4 +9,7 @@
     "pg": "^8.7.3",
     "pool": "^0.4.1"
   }
+},
+"scripts": {
+    "start": "node index.js"
 }
