@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars')
-// const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.listen(3000, console.log(`Up en 3000`));
+app.listen(port, console.log(`Up en ${port}`));
 
 app.use('/bootstrap', express.static(__dirname + '/node_modules/bootstrap/dist/css'))
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist'))
