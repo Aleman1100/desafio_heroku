@@ -1,0 +1,82 @@
+{{!-- Crear las vistas mencionadas en las instrucciones.
+a. Crear
+b. Listar
+c. Confirmar eliminación --}}
+{{> encabezado }}
+<a href="http://localhost:3000/"><h4>Inicio</h4></a>
+    <div id="ListaTareas">
+      <hr />
+      <hr />
+      <h2>Usuario a eliminar</h2>
+
+      <div class="container pt-5 w-75">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">-</th>
+            </tr>
+          </thead>
+          <tbody id="cuerpo"></tbody>
+        </table>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<style>
+  body {
+    text-align: center;
+  }
+</style>
+
+<script>
+  let url = "http://localhost:3000/users";
+  let tbody = document.getElementById("cuerpo");
+  const idUser = "{{ idUser }}"
+  console.log(idUser)
+
+  let tareas = [];
+  window.onload = getData();
+
+  async function getData() {
+    await axios.get(url).then((data) => {
+      usuarios = data.data;
+      console.log(usuarios);
+      tbody.innerHTML = "";
+      usuarios.forEach((c, i) => {
+        if (c.id == idUser){
+          tbody.innerHTML += `
+          <tr>
+            <td>${c.id}</td>
+            <td>${c.username}</td>
+            <td>${c.email}</td>
+            <td>${c.fecha}</td>
+            <td>
+              <button class="btn btn-danger" onclick="eliminarTarea('${c.id}')">Eliminar</button>
+            </td>
+          </tr>
+      `;} else {
+        tbody.innerHTML += `
+          <tr>
+            <td>${c.id}</td>
+            <td>${c.username}</td>
+            <td>${c.email}</td>
+            <td>${c.fecha}</td>
+          </tr>
+      `;
+      }
+      });
+    });
+  }
+
+  function eliminarTarea(id) {
+    axios.delete(url + "/" + id).then(() => {
+      alert("Usuario " + idUser + " eliminado");
+      location.replace("http://localhost:3000/")
+    });
+  }
+</script>
+  
