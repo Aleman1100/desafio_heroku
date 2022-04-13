@@ -3,7 +3,7 @@ a. Crear
 b. Listar
 c. Confirmar eliminación --}}
 {{> encabezado }}
-<a href="http://localhost:3000/"><h4>Inicio</h4></a>
+<a href="https://desafio-heroku-alejandro.herokuapp.com/"><h4>Inicio</h4></a>
     <div id="ListaTareas">
       <hr />
       <hr />
@@ -33,7 +33,7 @@ c. Confirmar eliminación --}}
 </style>
 
 <script>
-  let url = "http://localhost:3000/users";
+  let url = "https://desafio-heroku-alejandro.herokuapp.com/users";
   let tbody = document.getElementById("cuerpo");
   const idUser = "{{ idUser }}"
   console.log(idUser)
@@ -75,7 +75,7 @@ c. Confirmar eliminación --}}
   function eliminarTarea(id) {
     axios.delete(url + "/" + id).then(() => {
       alert("Usuario " + idUser + " eliminado");
-      location.replace("http://localhost:3000/")
+      location.replace("https://desafio-heroku-alejandro.herokuapp.com/")
     });
   }
 </script>
