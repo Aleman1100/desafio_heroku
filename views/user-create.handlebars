@@ -3,7 +3,7 @@ a. Crear
 b. Listar
 c. Confirmar eliminación --}}
 {{> encabezado }}
-<a href="http://localhost:3000/"><h4>Inicio</h4></a>  
+<a href="https://desafio-heroku-alejandro.herokuapp.com/"><h4>Inicio</h4></a>  
 <h1>Agregar Usuario</h1>
 <div class="py-4">
     <hr class="w-50" />
@@ -27,13 +27,13 @@ c. Confirmar eliminación --}}
         <input id="password2" class="form-control m-auto"/>
         </div>
     </div>
-    <button class="btn btn-info mb-3" onclick="nuevoUser()" id="agregar" action="http://localhost:3000/user">Agregar</button>
+    <button class="btn btn-info mb-3" onclick="nuevoUser()" id="agregar" action="https://desafio-heroku-alejandro.herokuapp.com/user">Agregar</button>
     </form>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script>
-  let url = "http://localhost:3000/user";
+  let url = "https://desafio-heroku-alejandro.herokuapp.com/user";
   let username = document.getElementById("username");
   let email = document.getElementById("email");
   let password1 = document.getElementById("password1");
